@@ -23,9 +23,8 @@
                 <p class="highlight">Anonymous. Secure. Untraceable.</p>
             </div>
         </div>
-        
-        <div class="join-form">
-            <form id="contact-form" action="javascript:void(0);">
+          <div class="join-form">
+            <form id="contact-form" action="{{ url_for('contact') }}" method="post">
                 <div class="form-group">
                     <label for="subject">Subject</label>
                     <input type="text" id="subject" name="subject" required>
@@ -56,8 +55,25 @@
 <script>
     document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Message encrypted and sent through secure channels. Connection terminated.');
-        this.reset();
+        
+        // Get form data
+        const formData = new FormData(this);
+        
+        // Send AJAX request
+        fetch("{{ url_for('contact') }}", {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.status === 'success') {
+                this.reset();
+            }
+        })        .catch(error => {
+            console.error('Error:', error);
+            alert('Connection error. Try again later.');
+        });
     });
 </script>
 {% endblock %}

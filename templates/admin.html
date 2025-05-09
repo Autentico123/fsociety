@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}FSociety - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section style="padding: 2rem 0;">
+        <h2 style="color: #e50914;">Admin Dashboard</h2>
+        <p>Viewing all submissions from potential recruits and contacts.</p>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-circle red"></div>
+                <div class="terminal-circle yellow"></div>
+                <div class="terminal-circle green"></div>
+            </div>
+            <div class="terminal-content">
+                <p class="terminal-prompt"># Admin Access Granted</p>
+                <p>Security level: <span class="highlight">Maximum</span></p>
+                <p>Connection: <span class="highlight">Encrypted</span></p>
+                <p>Status: <span class="highlight">Monitoring</span></p>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 3rem; color: #e50914;">Recruitment Applications</h3>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <thead>
+                    <tr style="background-color: #151515;">
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">ID</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Handle</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Skills</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Message</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Timestamp</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if recruits %}
+                        {% for recruit in recruits %}
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 0.75rem;">{{ recruit.id }}</td>
+                                <td style="padding: 0.75rem;">{{ recruit.handle }}</td>
+                                <td style="padding: 0.75rem;">{{ recruit.skills }}</td>
+                                <td style="padding: 0.75rem;">{{ recruit.message }}</td>
+                                <td style="padding: 0.75rem;">{{ recruit.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td style="padding: 0.75rem;">{{ recruit.status }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6" style="padding: 1rem; text-align: center;">No recruitment applications yet.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+        <h3 style="margin-top: 3rem; color: #e50914;">Contact Messages</h3>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <thead>
+                    <tr style="background-color: #151515;">
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">ID</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Subject</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Message</th>
+                        <th style="padding: 0.75rem; border-bottom: 2px solid #e50914; text-align: left;">Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if contacts %}
+                        {% for contact in contacts %}
+                            <tr style="border-bottom: 1px solid #333;">
+                                <td style="padding: 0.75rem;">{{ contact.id }}</td>
+                                <td style="padding: 0.75rem;">{{ contact.subject }}</td>
+                                <td style="padding: 0.75rem;">{{ contact.message }}</td>
+                                <td style="padding: 0.75rem;">{{ contact.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4" style="padding: 1rem; text-align: center;">No contact messages yet.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}

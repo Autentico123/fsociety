@@ -23,9 +23,8 @@
                 <p class="highlight">WARNING: There is no going back.</p>
             </div>
         </div>
-        
-        <div class="join-form">
-            <form id="recruitment-form" action="javascript:void(0);">
+          <div class="join-form">
+            <form id="recruitment-form" action="{{ url_for('join') }}" method="post">
                 <div class="form-group">
                     <label for="handle">Hacker Handle</label>
                     <input type="text" id="handle" name="handle" required>
@@ -56,13 +55,24 @@
     document.getElementById('recruitment-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const passphrase = document.getElementById('passphrase').value.toLowerCase();
-        if (passphrase === 'debt' || passphrase === 'evil corp' || passphrase === 'the system') {
-            alert('Application received. Standby for encrypted contact.');
-            this.reset();
-        } else {
-            alert('Security check failed. Rethink your answer.');
-        }
+        // Get form data
+        const formData = new FormData(this);
+        
+        // Send AJAX request
+        fetch("{{ url_for('join') }}", {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.status === 'success') {
+                this.reset();
+            }
+        })        .catch(error => {
+            console.error('Error:', error);
+            alert('Connection error. Try again later.');
+        });
     });
 </script>
 {% endblock %}

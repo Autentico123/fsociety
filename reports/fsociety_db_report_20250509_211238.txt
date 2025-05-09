@@ -1,0 +1,30 @@
+============================================================
+                    FSOCIETY DATABASE REPORT
+               Generated: 2025-05-09 21:12:38
+============================================================
+
+[DATABASE FILE INFORMATION]
+Path: instance/fsociety.db
+Size: 12,288 bytes (0.01 MB)
+Last Modified: 2025-05-09 20:44:23
+
+[TABLE SUMMARY]
+Number of tables: 2
+Total records: 1
+  - recruit: 0 records
+  - contact: 1 records
+
+[RECRUITMENT DATA]
+Total recruits: 0
+
+Recruits by status:
+
+Recent recruit activity (last 7 days):
+
+[CONTACT DATA]
+Total contact messages: 1
+Messages in last 30 days: 1
+
+============================================================
+                    END OF REPORT
+============================================================
