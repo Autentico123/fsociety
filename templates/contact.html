@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}FSociety - Contact{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="contact-section">
+        <h2>Secure Contact</h2>
+        
+        <p>Communication is secure and encrypted end-to-end. Messages are routed through multiple proxies and cannot be traced back to you.</p>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-circle red"></div>
+                <div class="terminal-circle yellow"></div>
+                <div class="terminal-circle green"></div>
+            </div>
+            <div class="terminal-content">
+                <p class="terminal-prompt"># Secure Communication Protocol</p>
+                <p>1. Messages encrypted using AES-256</p>
+                <p>2. Traffic routed through Tor network</p>
+                <p>3. All logs destroyed after delivery</p>
+                <p class="highlight">Anonymous. Secure. Untraceable.</p>
+            </div>
+        </div>
+        
+        <div class="join-form">
+            <form id="contact-form" action="javascript:void(0);">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="contact-message" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pgp-key">PGP Public Key (Optional)</label>
+                    <textarea id="pgp-key" name="pgp-key"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Send Encrypted Message</button>
+            </form>
+        </div>
+        
+        <div class="feature" style="width: 100%; margin-top: 2rem;">
+            <h3>Emergency Dead Drop</h3>
+            <p>For truly sensitive information, use our emergency communication channel. This creates a one-time secure line that self-destructs after use.</p>
+            <p>Dead drop key: <span class="highlight">f50c13ty-dr0p-{{ "20250509" }}-{{ "1425" }}</span></p>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Message encrypted and sent through secure channels. Connection terminated.');
+        this.reset();
+    });
+</script>
+{% endblock %}

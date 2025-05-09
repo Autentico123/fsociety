@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}FSociety - Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>FSociety</h1>
+    <p>Join the revolution. Break the system. Change the world.</p>
+    <a href="{{ url_for('join') }}" class="btn">Join Now</a>
+</section>
+
+<div class="container">
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-circle red"></div>
+            <div class="terminal-circle yellow"></div>
+            <div class="terminal-circle green"></div>
+        </div>
+        <div class="terminal-content">
+            <p class="terminal-prompt animate">initializing fsociety protocol...</p>
+            <p class="animate">scanning for vulnerabilities...</p>
+            <p class="animate">encryption established</p>
+            <p class="animate">status: <span id="api-status">connecting...</span></p>
+        </div>
+    </div>
+
+    <div class="ascii-art">
+        ███████╗███████╗ ██████╗  ██████╗██╗███████╗████████╗██╗   ██╗
+        ██╔════╝██╔════╝██╔═══██╗██╔════╝██║██╔════╝╚══██╔══╝╚██╗ ██╔╝
+        █████╗  ███████╗██║   ██║██║     ██║█████╗     ██║    ╚████╔╝ 
+        ██╔══╝  ╚════██║██║   ██║██║     ██║██╔══╝     ██║     ╚██╔╝  
+        ██║     ███████║╚██████╔╝╚██████╗██║███████╗   ██║      ██║   
+        ╚═╝     ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝   
+    </div>
+</div>
+{% endblock %}

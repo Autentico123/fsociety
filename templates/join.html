@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}FSociety - Join Us{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="join-section">
+        <h2>Join FSociety</h2>
+        
+        <p>Are you ready to take the red pill? Join our ranks and help us change the world.</p>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-circle red"></div>
+                <div class="terminal-circle yellow"></div>
+                <div class="terminal-circle green"></div>
+            </div>
+            <div class="terminal-content">
+                <p class="terminal-prompt"># Recruitment Process</p>
+                <p>1. Submit your application</p>
+                <p>2. Complete a security challenge</p>
+                <p>3. Await encrypted contact</p>
+                <p class="highlight">WARNING: There is no going back.</p>
+            </div>
+        </div>
+        
+        <div class="join-form">
+            <form id="recruitment-form" action="javascript:void(0);">
+                <div class="form-group">
+                    <label for="handle">Hacker Handle</label>
+                    <input type="text" id="handle" name="handle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="skills">Your Skills</label>
+                    <input type="text" id="skills" name="skills" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Why FSociety?</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="passphrase">Security Question: What do we want to destroy?</label>
+                    <input type="text" id="passphrase" name="passphrase" required>
+                </div>
+                
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.getElementById('recruitment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const passphrase = document.getElementById('passphrase').value.toLowerCase();
+        if (passphrase === 'debt' || passphrase === 'evil corp' || passphrase === 'the system') {
+            alert('Application received. Standby for encrypted contact.');
+            this.reset();
+        } else {
+            alert('Security check failed. Rethink your answer.');
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section style="text-align: center; padding: 5rem 0;">
+        <h1 style="font-size: 8rem; margin: 0; color: #e50914;">404</h1>
+        <h2>ACCESS DENIED</h2>
+        
+        <div class="terminal" style="max-width: 600px; margin: 2rem auto;">
+            <div class="terminal-header">
+                <div class="terminal-circle red"></div>
+                <div class="terminal-circle yellow"></div>
+                <div class="terminal-circle green"></div>
+            </div>
+            <div class="terminal-content">
+                <p class="terminal-prompt">ERROR: Page not found</p>
+                <p>The requested file does not exist in our system.</p>
+                <p>This incident has been logged.</p>
+                <p class="highlight blinking-cursor">Connection terminated</p>
+            </div>
+        </div>
+        
+        <a href="{{ url_for('index') }}" class="btn">Return to Base</a>
+    </section>
+</div>
+{% endblock %}

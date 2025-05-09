@@ -1,0 +1,282 @@
+/* FSociety Theme - Created by Asero */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0a0a0a;
+    color: #e3e3e3;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #151515;
+    padding: 1rem 0;
+    border-bottom: 2px solid #e50914;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e50914;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #e3e3e3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e50914;
+}
+
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/fsociety-bg.jpg') no-repeat center center/cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #e50914;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e50914;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #b2070f;
+    transform: translateY(-3px);
+}
+
+.about-section, .join-section {
+    padding: 4rem 0;
+}
+
+.about-section h2, .join-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #e50914;
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.feature {
+    width: 30%;
+    background-color: #151515;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid #e50914;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+}
+
+.feature h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #e50914;
+}
+
+.terminal {
+    background-color: #151515;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border-left: 3px solid #e50914;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.terminal-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-content {
+    font-family: 'Courier New', Courier, monospace;
+    color: #a0a0a0;
+}
+
+.terminal-content .highlight {
+    color: #e50914;
+    font-weight: bold;
+}
+
+.terminal-content p {
+    margin: 5px 0;
+}
+
+.terminal-prompt::before {
+    content: '$ ';
+    color: #e50914;
+}
+
+.blinking-cursor::after {
+    content: '|';
+    color: #e50914;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.join-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #151515;
+    padding: 2rem;
+    border-radius: 5px;
+    border-left: 3px solid #e50914;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e50914;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    color: #e3e3e3;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+footer {
+    background-color: #151515;
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 2px solid #e50914;
+}
+
+.creator {
+    color: #e50914;
+    font-weight: bold;
+}
+
+.ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1;
+    color: #e50914;
+    margin: 2rem auto;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .feature {
+        width: 100%;
+    }
+
+    .ascii-art {
+        font-size: 0.5rem;
+    }
+}
